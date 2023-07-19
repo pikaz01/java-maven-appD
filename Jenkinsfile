@@ -1,5 +1,5 @@
 def showMavenVersion(String a) {
-        sh 'maven clean install'
+        sh 'mvn clean install'
         echo a
 }
 
