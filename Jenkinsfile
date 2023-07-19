@@ -30,6 +30,6 @@ pipeline{
 def showMavenVersion(String a) {
         echo a
         def goal = params.maven_goal
-        sh "mvn '${goal}'"
+        sh "mvn ${goal}"
         
 }
