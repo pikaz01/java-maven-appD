@@ -27,6 +27,6 @@ def maven_goal = "clean install";
 
 def showMavenVersion(String a) {
         echo a
-        sh 'mvn $maven_goal'
+        sh "mvn '$maven_goal'"
         
 }
