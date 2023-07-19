@@ -8,8 +8,8 @@ pipeline{
     parameters {
     string(name: 'maven_goal')
   }
-  try{
-        stages{
+    stages{
+        try{
 
             stage('SCM Checkout'){
                 steps{
@@ -23,20 +23,19 @@ pipeline{
                 steps{
                     script{ 
                         sh "pwd"
-                        showMavenVersion('Maven is building the appilication', maven_goal)
+                        mavenbuild('Maven is building the appilication', maven_goal)
                     }                
                 }
             }
         }
-  }
-  catch (err){
-    currentBuild.result= 'failed'
-  }
+        catch (err)
+        currentBuild.result= 'failed'
+    }
+  
 }
 
-def showMavenVersion(String a, String goal) {
+def mavenbuild(String a, String goal) {
         echo a
-        
         sh "mvn ${goal}"
         
 }
