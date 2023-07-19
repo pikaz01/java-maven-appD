@@ -21,6 +21,7 @@ pipeline{
         }
         stage('maven-build'){
             steps{
+                sh "pwd"
                 script{ 
                     showMavenVersion('Maven is building the appilication', maven_goal)
                 }                
