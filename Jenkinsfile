@@ -21,9 +21,10 @@ pipeline{
         }
         stage('maven-build'){
             steps{
-                // script{ 
+                script{ 
+                    pwd
                     showMavenVersion('Maven is building the appilication', maven_goal)
-                // }                
+                }                
             }
         }
     }
