@@ -14,7 +14,7 @@ pipeline{
         stage('SCM Checkout'){
             steps{
                 checkout scmGit(branches: [[name: '*/pipeline']], extensions: [], userRemoteConfigs: [[credentialsId: 'github-token', url: 'https://github.com/pikaz01/java-maven-appD.git']])
-                sh "echo ${goal}"
+                sh "echo ${params.maven_goal}"
 
             }
             
@@ -22,13 +22,13 @@ pipeline{
         stage('maven-build'){
             steps{
                 script{ 
-                    showMavenVersion('Maven is building the appilication', goal)
+                    showMavenVersion('Maven is building the appilication', params.maven_goal)
                 }                
             }
         }
     }
 }
-def goal = params.maven_goal 
+
 def showMavenVersion(String a, String goal) {
         echo a
         
