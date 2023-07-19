@@ -1,8 +1,3 @@
-def showMavenVersion(String a) {
-        sh 'mvn clean install'
-        echo a
-}
-
 pipeline{
     agent any
 
@@ -26,4 +21,9 @@ pipeline{
             }
         }
     }
-}      
+}
+
+def showMavenVersion(String a) {
+        sh 'mvn clean install'
+        echo a
+}
