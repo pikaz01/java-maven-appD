@@ -6,7 +6,7 @@ pipeline{
     }
 
     parameters {
-    string(name: 'maven_goal' defaultValue: 'clean install' )
+    string(name: 'maven_goal' defaultValue: 'clean_install' )
     }
     stages{
         try{
