@@ -5,9 +5,9 @@ pipeline{
         maven 'Maven'       
     }
 
-    parameters {
-    string(name: 'maven_goal')
-  }
+  //   parameters {
+  //   string(name: 'maven_goal')
+  // }
 
     stages{
         stage('SCM Checkout'){
