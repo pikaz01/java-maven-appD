@@ -9,22 +9,22 @@ pipeline{
         stage('SCM Checkout'){
             steps{
                 script{
-                    gitcheckout('appgitcheckout')
+                    gitcheckout('checking out to the appilication')
             }
             
         }
         stage('maven-build'){
             steps{
                 script{
-                    mavenbuild('maven_build')
+                    mavenbuild('Maven is building the appilication')
                 }                
             }
         }
             
-def appgitcheckout{
+def gitcheckout{
     checkout scmGit(branches: [[name: '*/pipeline']], extensions: [], userRemoteConfigs: [[credentialsId: 'github-token', url: 'https://github.com/pikaz01/java-maven-appD.git']])
 }
-def maven_build (String a){
+def mavenbuild (String a){
     sh 'mvn ${goal}'
 }
             
