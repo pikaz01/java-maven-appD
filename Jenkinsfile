@@ -23,9 +23,8 @@ pipeline{
     }
 }
  
-
-def showMavenVersion(String a) {
-    def maven_goal = "clean";
+def maven_goal = "install";
+def showMavenVersion(String a, String maven_goal) {
         echo a
         sh 'mvn ${maven_goal}'
         
