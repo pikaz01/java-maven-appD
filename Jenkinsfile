@@ -8,25 +8,29 @@ pipeline{
     stages{
         stage('SCM Checkout'){
             steps{
-                script{
-                    gitcheckout('checking out to the appilication')
+                checkout scmGit(branches: [[name: '*/pipeline']], extensions: [], userRemoteConfigs: [[credentialsId: 'github-token', url: 'https://github.com/pikaz01/java-maven-appD.git']])
+
             }
             
         }
         stage('maven-build'){
             steps{
                 script{
-                    mavenbuild('Maven is building the appilication')
+                    showMavenVersion('Maven is building the appilication')
                 }                
             }
         }
             
-def gitcheckout{
-    checkout scmGit(branches: [[name: '*/pipeline']], extensions: [], userRemoteConfigs: [[credentialsId: 'github-token', url: 'https://github.com/pikaz01/java-maven-appD.git']])
+def showMavenVersion(String a) {
+        sh 'maven clean install'
+        echo a
 }
-def mavenbuild (String a){
-    sh 'mvn ${goal}'
-}
+            
+// // def gitcheckout{
+// // }
+// def mavenbuild (String a){
+//     sh 'mvn ${goal}'
+// }
             
         // stage('sonarqube'){
         //     steps{
