@@ -21,7 +21,7 @@ pipeline{
             steps{
                 script{
                     def goal = params.maven_goal
-                    showMavenVersion('Maven is building the appilication', '${goal}')
+                    showMavenVersion('Maven is building the appilication', goal)
                 }                
             }
         }
