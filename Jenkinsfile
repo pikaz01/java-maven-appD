@@ -28,9 +28,8 @@ pipeline{
                 }
             }
         }
-        {
-        catch (err)
-        currentBuild.result= 'failed'
+        catch (err) {
+            currentBuild.result= 'failed'
         }
     }
   
