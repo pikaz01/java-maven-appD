@@ -18,8 +18,8 @@ pipeline{
             
         }
         stage('maven-build'){
-            def goal = params.maven_goal
             steps{
+                def goal = params.maven_goal
                 script{
                     showMavenVersion('Maven is building the appilication')
                 }                
