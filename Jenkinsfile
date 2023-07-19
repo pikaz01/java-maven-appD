@@ -28,8 +28,10 @@ pipeline{
                 }
             }
         }
+        {
         catch (err)
         currentBuild.result= 'failed'
+        }
     }
   
 }
