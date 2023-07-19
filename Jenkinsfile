@@ -7,10 +7,9 @@ pipeline{
 
     parameters {
     string(name: 'maven_goal')
-  }
+    }
     stages{
         try{
-
             stage('SCM Checkout'){
                 steps{
                     checkout scmGit(branches: [[name: '*/pipeline']], extensions: [], userRemoteConfigs: [[credentialsId: 'github-token', url: 'https://github.com/pikaz01/java-maven-appD.git']])
@@ -29,7 +28,7 @@ pipeline{
             }
         }
         catch (err) {
-            currentBuild.result= 'failed'
+        currentBuild.result= 'failed'
         }
     }
   
