@@ -5,9 +5,9 @@ pipeline{
         maven 'Maven'       
     }
 
-    parameters {
-    string(name: 'maven_goal')
-  }
+//     parameters {
+//     string(name: 'maven_goal')
+//   }
 
     stages{
         stage('SCM Checkout'){
@@ -18,6 +18,7 @@ pipeline{
             
         }
         stage('maven-build'){
+            def goal = params.maven_goal
             steps{
                 script{
                     showMavenVersion('Maven is building the appilication')
@@ -29,7 +30,7 @@ pipeline{
  
 def showMavenVersion(String a) {
         echo a
-        def goal = params.maven_goal
+        
         sh "mvn ${goal}"
         
 }
