@@ -1,0 +1,5 @@
+def mavenbuild(String a, String goal) {
+        echo a
+        sh "mvn ${goal}"
+  
+return this;
