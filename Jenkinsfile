@@ -5,7 +5,7 @@ pipeline{
     stage('task1'){
       steps{
         script{
-          function()
+          first()
         }
       }
     }
